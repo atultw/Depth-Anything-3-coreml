@@ -372,7 +372,10 @@ public final class DepthAnything3 {
         }
 
         func centre3x4(_ base: Int, _ buf: [Float]) -> (Float, Float, Float) {
-            // row-major 3×4 stored at base: [r00 r01 r02 tx | r10 r11 r12 ty | r20 r21 r22 tz]
+            // Row-major 3×4 layout (stride 4 per row):
+            //   Row 0 [base+0 .. base+3]:  r00  r01  r02  tx
+            //   Row 1 [base+4 .. base+7]:  r10  r11  r12  ty
+            //   Row 2 [base+8 .. base+11]: r20  r21  r22  tz
             let r00 = buf[base],   r01 = buf[base+1], r02 = buf[base+2]
             let r10 = buf[base+4], r11 = buf[base+5], r12 = buf[base+6]
             let r20 = buf[base+8], r21 = buf[base+9], r22 = buf[base+10]

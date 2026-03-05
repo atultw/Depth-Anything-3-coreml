@@ -260,7 +260,7 @@ def main() -> None:
         )
 
     # Quick forward-pass sanity check
-    print("[3/5] Validating traced model …")
+    print("[3/5] Validating traced model ...")
     with torch.no_grad():
         depth, conf, p_ext, p_int = traced(example_images, example_ext, example_int)
     print(f"       depth        : {tuple(depth.shape)}")
@@ -271,7 +271,7 @@ def main() -> None:
     # ------------------------------------------------------------------
     # 4. Convert to CoreML
     # ------------------------------------------------------------------
-    print("[4/5] Converting to CoreML (mlprogram) …")
+    print("[4/5] Converting to CoreML (mlprogram) ...")
 
     n_dim = ct.RangeDim(
         lower_bound=args.min_views,
@@ -344,7 +344,7 @@ def main() -> None:
     # ------------------------------------------------------------------
     # 5. Save
     # ------------------------------------------------------------------
-    print(f"[5/5] Saving to {args.output} …")
+    print(f"[5/5] Saving to {args.output} ...")
     mlmodel.save(args.output)
     print("✅  Conversion complete.")
 
